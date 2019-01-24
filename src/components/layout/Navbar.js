@@ -1,15 +1,15 @@
-import React from 'react';
-import { Navbar, Nav, NavItem } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-import './styles.css';
+import React from "react";
+import { Navbar, Nav, NavItem } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import "./styles.css";
 
 function handleEventKey(selectedKey) {
   console.log(`selected ${selectedKey}`);
 }
 
-
 export default () => {
-  return <Navbar inverse collapseOnSelect className="square-corners">
+  return (
+    <Navbar inverse collapseOnSelect className="square-corners">
       <Navbar.Header>
         <Navbar.Brand>
           <a href="/">Bumcheeks</a>
@@ -18,15 +18,26 @@ export default () => {
       </Navbar.Header>
       <Navbar.Collapse>
         <Nav onSelect={handleEventKey}>
+          <NavItem
+            eventKey={1}
+            componentClass={Link}
+            href="/register"
+            to="/register"
+          >
+            Register
+          </NavItem>
           <NavItem eventKey={1} componentClass={Link} href="/" to="/">
             Home
           </NavItem>
           <NavItem eventKey={2} componentClass={Link} href="/decks" to="/decks">
             Decks
           </NavItem>
-        <NavItem eventKey={3} componentClass={Link} href="/login" to="login">
-          Login
+          <NavItem eventKey={3} componentClass={Link} href="/login" to="login">
+            Login
           </NavItem>
+          {/* <NavItem eventKey={4} componentClass={Link} href="/user/confirm/1234" to="user/confirm/1234">
+            Confirm
+          </NavItem> */}
         </Nav>
         <Nav pullRight>
           <NavItem eventKey={4} to="/add" componentClass={Link} href="/add">
@@ -34,5 +45,6 @@ export default () => {
           </NavItem>
         </Nav>
       </Navbar.Collapse>
-    </Navbar>;
+    </Navbar>
+  );
 };

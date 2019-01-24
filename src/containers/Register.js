@@ -9,38 +9,40 @@ import {
   Col
 } from "react-bootstrap";
 import { graphql, compose } from "react-apollo";
-import LOGIN_MUTATION from "../graphql/mutation/LOGIN_MUTATION";
+import REGISTER_MUTATION from "../graphql/mutation/REGISTER_MUTATION";
 
-class Login extends Component {
+class Register extends Component {
   state = {
     values: {
       email: "my@email.com",
       password: "alpha",
+      nickName: "MyNickName"
     }
   };
-  handleLoginSubmit = async () => {
+  handleRegisterSubmit = async () => {
     console.log('\n', 'HELLO handleRegisterSubmit' )
     const {
-      values: { email, password }
+      values: { email, password, nickName }
     } = this.state;
-    const { loginMutation } = this.props;
+    const { registerMutation } = this.props;
 
     let res;
     try {
-      res = await loginMutation({
+      res = await registerMutation({
         variables: {
+          nickName,
           email,
           password
         }})
     } catch (e) {
-      console.log('\n', 'loginMutation Error', '\n', e )
+      console.log('\n', 'registerMutation Error', '\n', e )
     }
     console.log('\n', 'res', '\n', '\n', res )
 
     if(!!res.data) {
       console.log('\n', 'hello if block', '\n', '\n' )
-      this.props.history.push("/", {
-        message: "You have sucessfully logged in!"
+      this.props.history.push("/add", {
+        message: "check your email to confirm your account"
       })
     }
   };
@@ -56,7 +58,7 @@ class Login extends Component {
 
   render() {
     const {
-      values: { email, password }
+      values: { email, password, nickName }
     } = this.state;
     console.log("\n", "this.props", "\n", "\n", this.props);
 
@@ -67,12 +69,20 @@ class Login extends Component {
             <form
               onSubmit={e => {
                 e.preventDefault();
-
-                this.handleLoginSubmit();
+                this.handleRegisterSubmit();
               }}
             >
               <FormGroup>
                 <ControlLabel>Register Bumblesquats!</ControlLabel>
+                <FormControl
+                  id="nickName"
+                  type="text"
+                  value={nickName}
+                  placeholder="Enter nickname"
+                  onChange={e =>
+                    this.handleChangeText("nickName", e.target.value)
+                  }
+                />
                 <FormControl
                   id="email"
                   type="email"
@@ -103,7 +113,7 @@ class Login extends Component {
 }
 
 export default compose(
-  graphql(LOGIN_MUTATION, {
-    name: "loginMutation"
+  graphql(REGISTER_MUTATION, {
+    name: "registerMutation"
   }),
-)(Login);
+)(Register);
