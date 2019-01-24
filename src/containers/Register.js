@@ -14,9 +14,9 @@ import REGISTER_MUTATION from "../graphql/mutation/REGISTER_MUTATION";
 class Register extends Component {
   state = {
     values: {
-      email: "my@email.com",
+      email: "",
       password: "alpha",
-      nickName: "MyNickName"
+      nickName: ""
     }
   };
   handleRegisterSubmit = async () => {
