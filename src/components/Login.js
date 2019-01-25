@@ -14,8 +14,8 @@ import LOGIN_MUTATION from "../graphql/mutation/LOGIN_MUTATION";
 class Login extends Component {
   state = {
     values: {
-      email: "my@email.com",
-      password: "alpha",
+      email: "a@a.com",
+      password: "a",
     }
   };
   handleLoginSubmit = async () => {

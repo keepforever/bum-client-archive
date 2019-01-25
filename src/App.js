@@ -7,7 +7,7 @@ import ConfirmEmail from "./containers/ConfirmEmail";
 import About from "./components/scratch/About";
 import Layout from "./components/Layout";
 import Login from "./components/Login";
-import Add from "./components/Add";
+import Add from "./containers/AddDeck";
 
 class App extends Component {
   render() {

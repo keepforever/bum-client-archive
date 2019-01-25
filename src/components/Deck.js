@@ -3,18 +3,21 @@ import { Panel } from "react-bootstrap";
 
 export default ({ name, description, deckList }) => {
   return (
-      <Panel style={{
+    <Panel
+      style={{
         maxWidth: "500px",
-        display: "inline-block",
-      }}>
-        <Panel.Heading>
-          <Panel.Title componentClass="h2">
-            {`Name: ${name}: ${description}`}
-          </Panel.Title>
-        </Panel.Heading>
-        <Panel.Body>
-          <p style={{ whiteSpace: "pre", textAlign: "left" }}>{deckList}</p>
+        minWidth: '300px',
+      }}
+    >
+      <Panel.Heading>
+        <Panel.Title toggle>{name}</Panel.Title>
+      </Panel.Heading>
+      <Panel.Collapse>
+        <Panel.Body style={{ whiteSpace: "pre", textAlign: "left" }}>
+          {deckList}
         </Panel.Body>
-      </Panel>
+      </Panel.Collapse>
+      <Panel.Footer>{description}</Panel.Footer>
+    </Panel>
   );
 };
