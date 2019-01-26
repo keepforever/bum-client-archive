@@ -1,10 +1,11 @@
-import React from 'react';
-import Navbar from './layout/Navbar'
+import React from "react";
+import Navbar from "./layout/Navbar";
 
-
-export default (props) => {
-    return <div>
-        <Navbar />
+export default props => {
+  return (
+    <div style={{backgroundColor: 'grey', minHeight: '100vh'}}>
+      <Navbar />
         {props.children}
-      </div>;
+    </div>
+  );
 };

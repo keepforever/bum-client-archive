@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import {
   FormGroup,
-  ControlLabel,
   FormControl,
   Button,
   Grid,
@@ -20,7 +19,7 @@ class Register extends Component {
     }
   };
   handleRegisterSubmit = async () => {
-    console.log('\n', 'HELLO handleRegisterSubmit' )
+    console.log("\n", "HELLO handleRegisterSubmit");
     const {
       values: { email, password, nickName }
     } = this.state;
@@ -33,17 +32,16 @@ class Register extends Component {
           nickName,
           email,
           password
-        }})
+        }
+      });
     } catch (e) {
-      console.log('\n', 'registerMutation Error', '\n', e )
+      console.log("\n", "registerMutation Error", "\n", e);
     }
-    console.log('\n', 'res', '\n', '\n', res )
+    console.log("\n", "res", "\n", "\n", res);
 
-    if(!!res.data) {
-      console.log('\n', 'hello if block', '\n', '\n' )
-      this.props.history.push("/add", {
-        message: "check your email to confirm your account"
-      })
+    if (!!res.data) {
+      console.log("\n", "hello if block", "\n", "\n");
+      this.props.history.push("/login");
     }
   };
 
@@ -72,8 +70,13 @@ class Register extends Component {
                 this.handleRegisterSubmit();
               }}
             >
+            <div style={{textAlign: 'center'}}>
+            <h1>
+            Register Bumblesquats!
+            </h1>
+              </div>
               <FormGroup>
-                <ControlLabel>Register Bumblesquats!</ControlLabel>
+
                 <FormControl
                   id="nickName"
                   type="text"
@@ -115,5 +118,5 @@ class Register extends Component {
 export default compose(
   graphql(REGISTER_MUTATION, {
     name: "registerMutation"
-  }),
+  })
 )(Register);

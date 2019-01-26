@@ -62,10 +62,10 @@ class Deck extends Component {
         }}
       >
         <Panel.Heading>
-          <Panel.Title toggle>{name}</Panel.Title>
+          <Panel.Title style={{ textAlign: 'center', fontSize: '30px', fontStyle: 'bold'}} toggle>{name}</Panel.Title>
         </Panel.Heading>
         <Panel.Collapse>
-          <Panel.Body style={{ whiteSpace: "pre", textAlign: "left" }}>
+          <Panel.Body style={{ whiteSpace: "pre", textAlign: "left", fontSize: '20px' }}>
             {deckList}
           </Panel.Body>
         </Panel.Collapse>

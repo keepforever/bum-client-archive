@@ -29,6 +29,9 @@ export default () => {
           <NavItem eventKey={1} componentClass={Link} href="/" to="/">
             Home
           </NavItem>
+          <NavItem eventKey={1} componentClass={Link} href="/all" to="/all">
+            All Decks
+          </NavItem>
           <NavItem eventKey={2} componentClass={Link} href="/decks" to="/decks">
             Decks
           </NavItem>
