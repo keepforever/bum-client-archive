@@ -1,11 +1,15 @@
 import React from "react";
 import Navbar from "./layout/Navbar";
+import "./layout/myGrid/styles.css";
 
 export default props => {
   return (
-    <div style={{backgroundColor: 'grey', minHeight: '100vh'}}>
-      <Navbar />
-        {props.children}
+    <div id="content">
+      <nav>
+        <Navbar />
+      </nav>
+      <main>{props.children}</main>
+      <footer>footer</footer>
     </div>
   );
 };

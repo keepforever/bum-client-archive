@@ -58,11 +58,11 @@ class Deck extends Component {
       <Panel
         style={{
           maxWidth: "750px",
-          minWidth: "400px"
+          minWidth: "400px",
         }}
       >
-        <Panel.Heading>
-          <Panel.Title style={{ textAlign: 'center', fontSize: '30px', fontStyle: 'bold'}} toggle>{name}</Panel.Title>
+        <Panel.Heading style={{backgroundColor: 'black'}}>
+          <Panel.Title style={{ backgroundColor: 'black', color: "white", textAlign: 'center', fontSize: '30px', fontStyle: 'bold'}} toggle>{name}</Panel.Title>
         </Panel.Heading>
         <Panel.Collapse>
           <Panel.Body style={{ whiteSpace: "pre", textAlign: "left", fontSize: '20px' }}>

@@ -5,6 +5,10 @@ import Deck from "../components/Deck"
 
 class Home extends Component {
 
+  componentDidMount = () => {
+    this.props.meQuery.refetch()
+  }
+
 
   render() {
     // console.log("\n", `Home this.props`, "\n", "\n", this.props);
@@ -28,7 +32,7 @@ class Home extends Component {
     } = this.props;
 
     return (
-      <div style={{paddingLeft: '20px'}}>
+      <div style={{display: 'block', paddingLeft: '20px'}}>
         <h1>Hello Home</h1>
         <h2>nickName: {nickName}</h2>
         <div style={{
@@ -37,6 +41,8 @@ class Home extends Component {
           alignItems: 'start',
           justifyContent: 'flex-start',
           flexWrap: 'wrap',
+          maxHeight: '40vh',
+          overflowY: 'scroll'
         }}>
         {myDecks.length > 0 && (
           myDecks.map((d) => {
