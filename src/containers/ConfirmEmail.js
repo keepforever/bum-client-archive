@@ -7,7 +7,7 @@ class ConfirmEmail extends Component {
   componentDidMount = async () => {
     let res;
     try {
-      res = this.confirmEmailSubmit()
+      res = await this.confirmEmailSubmit()
       console.log('\n', 'ConfirmEmail:componentDidMount, res:', '\n', '\n', res )
     } catch (e) {
       console.log('\n', 'e', '\n', '\n', e )
@@ -15,7 +15,6 @@ class ConfirmEmail extends Component {
   }
 
   confirmEmailSubmit = async () => {
-    console.log("\n", "HELLO confirmEmailSubmit");
 
     const {
       match: {
@@ -38,7 +37,6 @@ class ConfirmEmail extends Component {
     console.log("\n", "res", "\n", "\n", res);
 
     if(!!res.data.confirmUser) {
-      console.log('\n', 'hello if block', '\n', '\n' )
       this.props.history.push("/login", {
         message: "Please login and enjoy!"
       })
